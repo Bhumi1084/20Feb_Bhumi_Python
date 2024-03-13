@@ -1,0 +1,13 @@
+Q: What are negative indexes and why are they used?
+
+=> Negative indexing allows you to access elements of a sequence from the end.
+
+=> Negative indexing is used to in python to begin slicing from the end of the string.
+
+=> For example, in a string with 5 characters, the last character can be accessed using the index -1, the 
+   second last character using the index -2, and so on.
+
+=> Example: 
+    str="This is python"
+    print("Last character : ",str[-1:])     #output: n
+    print("Second last character : ",str[-2:])      #output: on
