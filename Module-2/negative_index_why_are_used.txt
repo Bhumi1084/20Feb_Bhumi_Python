@@ -10,4 +10,4 @@ Q: What are negative indexes and why are they used?
 => Example: 
     str="This is python"
     print("Last character : ",str[-1:])     #output: n
-    print("Second last character : ",str[-2:])      #output: on
+    print("Second last character : ",str[-2:])      #output: on 
