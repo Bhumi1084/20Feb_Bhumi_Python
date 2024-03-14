@@ -1,0 +1,5 @@
+Q: What are negative indexes and why are they used?
+
+=> Negative indexing allows you to access elements of a sequence from the end, using negative numbers 
+    as indexes.
+
