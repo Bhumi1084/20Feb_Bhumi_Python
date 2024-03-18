@@ -19,5 +19,5 @@ for element in list1:
         print("True")
         print(f"one common member is : {element}")
         break
-else:
-    print("False")
+    else:
+        print("False")
