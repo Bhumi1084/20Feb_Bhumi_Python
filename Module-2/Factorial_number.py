@@ -1,11 +1,11 @@
 #Write a Python program to get the Factorial number of given number.
 
-number=int(input("Enter a number : "))
-fact=1
-if number<0:
+number=int(input("Enter a number : "))      #get value from user
+fact = 1    #Initialize
+if number<0:    #check less then zero condition are true then print message
     print("Enter integer number.")
-else:
+else:   #condition are false then calculate factorial number
     for i in range(1,number):
-        fact=fact * i
-        i+=1
-    print("Factorial is : ",fact)
+        fact = fact * i     #calculate factorial number
+        i += 1
+    print(f"{number} Factorial is : {fact}")   #display factorial number

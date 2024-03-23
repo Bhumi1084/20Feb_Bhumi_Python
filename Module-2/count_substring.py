@@ -1,5 +1,5 @@
 #Write a Python program to count occurrences of a substring in a string.
-string=input("Enter a string : ")
-csubstring=string.split()
-print(csubstring)
-print("Substring : ",len(csubstring))
+string=input("Enter a string : ")   #get value from user
+csubstring=string.split()   #split a string
+print(csubstring)   #display sub string
+print("Substring : ",len(csubstring))   #display length of sub string

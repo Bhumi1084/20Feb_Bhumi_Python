@@ -12,20 +12,20 @@
 '''
 #example of append():
 
-data = []
+data = []   #create a list
 n = int(input("Enter number of element : "))
 for i in range(n):
     element = input("Enter a element : ")
     data.append(element)    #add one element in a list
-print(data)
+print(data)     #display list
 
 #example of extend():
 
-data1 = []
+data1 = []  
 n1 = int(input("Enter number of element : "))
 for i in range(n1):
     element1 = input("Enter a element : ")
     data1.append(element1)    #add one element in a list
 
-data.extend(data1)
-print(data)
+data.extend(data1)       #Extend the first list with the elements of the second list
+print(data)     #display first list
