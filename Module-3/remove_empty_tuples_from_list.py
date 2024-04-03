@@ -8,6 +8,7 @@ for i in range(n):
 
 print(tuple1)   #display tuples from a list
 for i in tuple1:
+    print(i)
     if len(i)==0:
         tuple1.remove(i)   #remove blank tuple
         
