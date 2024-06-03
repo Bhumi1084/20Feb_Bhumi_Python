@@ -1,0 +1,19 @@
+Q-1 :  Why Django should be used for web-development? Explain how you can create a project in Django? 
+
+=> Django is a high-level Python web framework that enables rapid development of secure and maintainable websites.
+
+=> Built by experienced developers, Django takes care of much of the hassle of web development, so you can focus on 
+    writing your app without needing to reinvent the wheel.
+
+* Explain how you can create a project in Django? :
+
+=> To create the project, use the command-line utility django-admin that comes with Django. 
+
+=> This command will generate files where you can configure the settings for your database, add third-party packages, 
+    and more.
+
+=> Create the project using the following command :
+    -> django-admin startproject myproject
+
+=> Change into the myproject directory :
+    -> cd myproject
