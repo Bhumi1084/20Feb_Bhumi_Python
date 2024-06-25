@@ -27,7 +27,9 @@ def updatedata(request,id):
             return redirect('showdata')
         else:
             print(stdata.errors)
-    return render(request,'updatedata.html',{'stid':stid})
+    else:
+        stdata = studform(instance=stid)
+    return render(request,'updatedata.html',{'stid':stid, 'form':stdata})
 
 def deletedata(request,id):
     stid = studinfo.objects.get(id=id)

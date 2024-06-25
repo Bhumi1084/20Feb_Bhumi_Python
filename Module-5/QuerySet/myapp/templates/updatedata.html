@@ -8,6 +8,17 @@
         body{
             background-color: antiquewhite;
         }
+        input{
+            font-size: large;
+            margin-left: 550px;
+        }
+        textarea{
+            font-size: large;
+            margin-left: 550px;
+        }
+        a{
+            font-size: large;
+        }
     </style>
 </head>
 <body>
@@ -19,7 +30,7 @@
         <input type="email" value="{{stid.email}}" name="email"><br><br>
         <input type="date" value="{{stid.dob}}" name="dob"><br><br>
         <input type="number" value="{{stid.mobile}}" name="mobile"><br><br>
-        <textarea aria-valuetext="{{stid.address}}" name="address"></textarea><br><br>
+        <textarea name="address">{{stid.address}}</textarea><br><br>
         <input type="submit" value="Update">
     </form>
     <hr>
