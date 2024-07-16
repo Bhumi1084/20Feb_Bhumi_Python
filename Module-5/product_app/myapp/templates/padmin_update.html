@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Product</title>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1>Admin</h1>
+            <hr>
+            <form method="post">
+                {% csrf_token %}                
+                <br>  
+                <label>Product Name : </label>
+                <input type="text" value="{{pid.pname}}" name="pname"
+                    placeholder="Enter Product Name">
+                <br><br>
+
+                <div class="d-grid gap-5 col-2 mx-auto">
+                    <button class="btn btn-dark" id="btn_admin"
+                        type="submit">Update</button>
+                </div>
+                <br>
+                <div class="d-grid gap-5 col-2 mx-auto">
+                    <button class="btn btn-dark" id="btn_admin"
+                        type="submit"><a href="/">Back</a></button>
+                </div>
+            </form>
+        </center>
+    </div>
+</body>
+</html>
