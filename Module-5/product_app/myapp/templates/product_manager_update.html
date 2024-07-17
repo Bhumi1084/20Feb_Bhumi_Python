@@ -32,27 +32,25 @@
                 <form method="post">
                     {% csrf_token %}
                     <label>Product Name : </label>
-                    <select name="pname">
-                        {% for i in pnmData %}
-                        <option>{{i.pname}}</option>
-                        {% endfor %}
+                    <select name="pname">                        
+                        <option>{{pmid.pname}}</option>                        
                     </select>
 
-                    {% for i in pmanager_data %}
+                   
                     <br><br>
                     <label>Product Price : </label>
-                    <input type="text" name="price" value="{{i.price}}">
+                    <input type="text" name="price" value="{{pmid.price}}">
                     <br><br>
                     <label>Product Image : </label>
-                    <input type="file" name="image" value="{{i.image}}">
+                    <input type="file" name="image" value="{{pmid.image}}">
                     <br><br>
                     <label>Product Model : </label>
-                    <input type="text" name="pmodel" value="{{i.pmodel}}">
+                    <input type="text" name="pmodel" value="{{pmid.pmodel}}">
                     <br><br>
                     <label>Product Ram</label>
-                    <input type="text" name="ram" value="{{i.ram}}">
+                    <input type="text" name="ram" value="{{pmid.ram}}">
                     <br><br>
-                    {% endfor %}
+                    
 
                     <div class="d-grid gap-5 col-2 mx-auto">
                         <button class="btn btn-dark" id="btn_admin"

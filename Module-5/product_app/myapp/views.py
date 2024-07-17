@@ -52,7 +52,7 @@ def padmin_update(request,id):
 def product_manager_update(request,id):
     pmid = sub_product.objects.get(id=id)
     if request.method == 'POST':
-        pmanager_data = pmst(request.POST, instance=pmid)
+        pmanager_data = pmst(request.POST, instance=pmid.pname)
         if pmanager_data.is_valid():
             pmanager_data.save()
             print("Record Updated...!!")

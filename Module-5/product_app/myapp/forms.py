@@ -9,4 +9,4 @@ class pro_admin(forms.ModelForm):
 class pmst(forms.ModelForm):
      class Meta:
         model = sub_product
-        fields = '__all__'        
+        fields = ['pname','price','image','pmodel','ram']        

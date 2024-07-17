@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+
+        <style>
+            .navbar-brand{
+                font-weight: bolder;
+            }
+            input{
+                border-radius: 20px;
+                font-size: large;
+                margin-left: 400px;
+                border: 1px white solid;
+                background-color: grey;
+                height: 35px;
+                width: 300px;
+                color: white;
+                display: flex;
+                justify-content: center;                
+            }
+            input::placeholder{
+                color: rgba(255, 255, 255, 0.699);
+            }
+            button, a{
+                font-size: large;
+                color: white;
+            }
+            .container button{
+                border-radius: 20px;
+                width: 200px;
+                height: 35px;                    
+                margin-left: 450px;  
+                background-color: rgb(118, 192, 221);             
+                font-size: large;
+                border: none;                 
+                align-items: center;
+                justify-content: center;
+            }
+            .title{      
+                margin-left: 20px;         
+                font-weight: bold;
+                color: rgba(255, 255, 255, 0.829);
+            } 
+            h2{
+                color: white;
+                margin-top: 30px;
+                justify-content: center;
+            }
+            .login-container{
+                background-color: grey;
+                height: 550px;
+                margin-top: 0px;
+                display: flex;
+            }     
+            .forgot-password{
+                display: flex;                
+                justify-content: center;
+            }       
+        </style>
+    </head>
+    <body>
+        <header>
+            <!-- NavBar Start -->
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">Digital Society</a>
+                    <div class="collapse navbar-collapse"
+                        id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active mx-2"
+                                    aria-current="page"
+                                    href="/">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-2" href="/MyProfile">My
+                                    Profile</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-2"
+                                    href="/SocietyMembers" role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Society Members
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            href="/SocietyMembers">Add New
+                                            Member</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/SocietyMembers">Update
+                                            Member Details</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/RemoveMember">Remove
+                                            Member</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/ShowMember">Show
+                                            Member List</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-2"
+                                    href="/SocietyWatchmen"
+                                    role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Society Watchmen
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            href="/SocietyWatchmen">Add new
+                                            Watchmen Details</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/RemoveWatchmen">Remove
+                                            Watchmen Details</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/SocietyWatchmen">Update
+                                            Watchmen
+                                            Details</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/ShowWatchmenDetails">Show
+                                            Watchmen List</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-2"
+                                    href="/Notice"
+                                    role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Notice
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            href="/Notice">Add
+                                            Notice</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/Notice">Update
+                                            Notice</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/RemoveNotice">Remove
+                                            Notice</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/ShowNotice">Show All
+                                            Notice</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-2"
+                                    href="/Event"
+                                    role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Event
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            href="/Event">Add
+                                            Event</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/Event">Update
+                                            Event</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/RemoveEvent">Remove
+                                            Event</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="/ShowEvent">Show Event
+                                            List</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <button class="btn btn-outline-success mx-2"
+                                type="submit"><a
+                                    href="/SignUp">SignUp</a></button>
+                            <button class="btn btn-outline-success"
+                                type="submit"><a
+                                    href="/Login">Login</a></button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <!-- NavBar End -->
+        </header>
+
+        <!-- Login Form Design Start -->
+        <div class="login-container">
+            <div class="title">
+                Digital Society
+            </div>
+            <div class="container">
+                <center>
+                    <h2>Log in</h2>
+                </center>
+                <br><br>
+                <form method="post">
+                    <input type="text" name="email"
+                        placeholder="yourgmail@gmail.com">
+                    <br><br>
+                    <input type="password" name="password"
+                        placeholder="Password">
+                    <br><br><br>
+                    <button type="submit"><a href="/SignUp">SIGN IN</a></button>
+                    <br><br>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </form>
+            </div>
+        </div>
+        <!-- Login Form Design End -->
+    </body>
+</html>
