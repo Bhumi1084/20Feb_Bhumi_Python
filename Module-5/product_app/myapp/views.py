@@ -34,6 +34,9 @@ def product_manager_add(request):
 def padmin(request):
     return render(request,'padmin.html')
 
+def product_manager(request):
+    return render(request,'product_manager.html')
+
 def padmin_update(request,id):
     pid = product_master.objects.get(id=id)
     if request.method=='POST':
@@ -46,11 +49,32 @@ def padmin_update(request,id):
             print(padmin_data.errors)
     return render(request,'padmin_update.html',{'pid':pid})
 
+def product_manager_update(request,id):
+    pmid = sub_product.objects.get(id=id)
+    if request.method == 'POST':
+        pmanager_data = pmst(request.POST, instance=pmid)
+        if pmanager_data.is_valid():
+            pmanager_data.save()
+            print("Record Updated...!!")
+            return redirect('pmanager_show')
+        else:
+            print(pmanager_data.errors)
+    return render(request,'product_manager_update.html',{'pmid':pmid})
+
 def padmin_show(request):
     padmin_data = product_master.objects.all()
     return render(request,'padmin_show.html',{'padmin_data':padmin_data})
+
+def product_manager_show(request):
+    pmanager_data = sub_product.objects.all()
+    return render(request,'product_manager_show.html',{'pmanager_data':pmanager_data})
 
 def padmin_delete(request,id):
     pid = product_master.objects.get(id=id)
     product_master.delete(pid)
     return redirect('showdata')
+
+def product_manager_delete(request,id):
+    pmid = sub_product.objects.get(id=id)
+    sub_product.delete(pmid)
+    return redirect('pmanager_show')
