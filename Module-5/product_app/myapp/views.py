@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse, redirect
+from django.shortcuts import render,get_object_or_404, redirect
 #from product_app import settings
 from .forms import *
 
@@ -50,16 +50,18 @@ def padmin_update(request,id):
     return render(request,'padmin_update.html',{'pid':pid})
 
 def product_manager_update(request,id):
-    pmid = sub_product.objects.get(id=id)
+    pmid = get_object_or_404(sub_product, id=id)
     if request.method == 'POST':
-        pmanager_data = pmst(request.POST, instance=pmid.pname)
+        pmanager_data = pmst(request.POST, request.FILES, instance=pmid)
         if pmanager_data.is_valid():
             pmanager_data.save()
             print("Record Updated...!!")
             return redirect('pmanager_show')
         else:
             print(pmanager_data.errors)
-    return render(request,'product_manager_update.html',{'pmid':pmid})
+    else:
+        pmanager_data = pmst(instance=pmid)
+    return render(request,'product_manager_update.html',{'form': pmanager_data,'pmid':pmid})
 
 def padmin_show(request):
     padmin_data = product_master.objects.all()
