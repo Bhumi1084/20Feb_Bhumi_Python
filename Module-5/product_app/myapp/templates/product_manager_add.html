@@ -29,9 +29,10 @@
             <center>
                 <h1>Add Sub Product</h1>
                 <hr>
-                <form method="post">
-                    {% csrf_token %}                                             
-                    <label>Product Name : </label>                    
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}  
+                    {{ form.as_p }}                                           
+                    <!-- <label>Product Name : </label>                    
                     <select name="pname">
                         {% for i in pnmData %}
                         <option>{{i.pname}}</option>
@@ -50,10 +51,10 @@
                     <br><br>
                     <label>Product Ram</label>
                     <input type="text" name="ram">
-                    <br><br>
+                    <br><br> -->
                     <div class="d-grid gap-5 col-2 mx-auto">
                         <button class="btn btn-dark" id="btn_admin"
-                            type="submit"><a href="#">Add</a></button>
+                            type="submit">Add</button>
                     </div>
                     <br>
                     <div class="d-grid gap-5 col-2 mx-auto">

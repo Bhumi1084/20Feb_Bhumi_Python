@@ -29,7 +29,7 @@
             <center>
                 <h1>Product Manager</h1>
                 <hr>
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <!-- <label>Product Name : </label>

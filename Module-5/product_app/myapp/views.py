@@ -14,6 +14,7 @@ def padmin_add(request):
             p_admin.save()
             print("Product Added Successfully....!")
             #msg1 = "Product Add Successfully."
+            return redirect('showdata')
         else:
             print(p_admin.errors)
     return render(request,'padmin_add.html')
@@ -22,14 +23,17 @@ def product_manager_add(request):
     pnmData = product_master.objects.all()
     
     if request.method == 'POST':
-        pro_manage = pmst(request.POST)
+        pro_manage = pmst(request.POST,  request.FILES)
         if pro_manage.is_valid():
             pro_manage.save()
             print("Sub Product Added Successfully....!")
             #msg = "Sub Product Add Successfully."
+            return redirect('pmanager_show')
         else:
             print(pro_manage.errors)  
-    return render(request,'product_manager_add.html',{'pnmData' : pnmData})
+    else:
+        pro_manage = pmst()
+    return render(request,'product_manager_add.html',{'form': pro_manage, 'pnmData' : pnmData})
 
 def padmin(request):
     return render(request,'padmin.html')
