@@ -160,27 +160,24 @@
                     <label for="validationTooltip01"
                         class="form-label">Name</label>
                     <input type="text" class="form-control"
-                        id="validationTooltip01" name="name" value="{{nid.name}}"
-                        placeholder="Enter First Name" required>
+                        id="validationTooltip01" name="name" value="{{nid.name}}" required>
                 </div>
                 <div class="col-md-6 position-relative">
                     <label for="validationTooltip02" class="form-label">About
                         Notice</label>
-                    <textarea class="form-control" name="aboutnotice"
-                        placeholder="Enter Last Name" required>{{nid.aboutnotice}}</textarea>
+                    <textarea class="form-control" name="aboutnotice" required>{{nid.aboutnotice}}</textarea>
                 </div>
                 <div class="col-md-6 position-relative">
                     <label for="validationTooltip02" class="form-label">Date And
                         Time</label>
                     <input type="datetime-local" class="form-control"
-                        id="validationTooltip02" name="date" value="{{ nid.date|date:"Y-m-d\TH:i" }}"
-                        placeholder="Enter Last Name" required>
+                        id="validationTooltip02" name="date" value="{{ nid.date|date:"Y-m-d\TH:i" }}" required>
                 </div>
                 <div class="col-md-6 position-relative">
                     <label for="validationTooltip05"
                         class="form-label">Mobile</label>
                     <input type="text" class="form-control"
-                        placeholder="Enter Your Mobile" value="{{nid.mobile}}"
+                        value="{{nid.mobile}}"
                         id="validationTooltip05" name="mobile" required>
                 </div>
                 <div class="col-12">

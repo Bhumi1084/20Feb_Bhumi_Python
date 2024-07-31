@@ -75,3 +75,37 @@ def updatenotice(request,id):
         else:
             print(membernotice.errors)
     return render(request,'updatenotice.html',{'nid':nid})
+
+# Event
+
+def addevent(request):
+    if request.method=='POST':
+        eventdata = event(request.POST)
+        if eventdata.is_valid():
+            eventdata.save()
+            print("Record inserted..!!")
+            return redirect('showevent')
+        else:
+            print(eventdata.errors)
+    return render(request,'addevent.html')
+
+def showevent(request):
+    event = AddEvent.objects.all()
+    return render(request,'showevent.html',{'event':event})
+
+def deletevent(request,id):
+    eid=AddEvent.objects.get(id=id)
+    AddEvent.delete(eid)
+    return redirect('showevent')
+
+def updateevent(request,id):
+    eid = AddEvent.objects.get(id=id)
+    if request.method == 'POST':
+        events = event(request.POST,instance=eid)
+        if events.is_valid():
+            events.save()
+            print("Record Updates...!!")
+            return redirect('showevent')
+        else:
+            print(events.errors)
+    return render(request,'updateevent.html',{'eid':eid})

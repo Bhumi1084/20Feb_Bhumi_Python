@@ -10,3 +10,8 @@ class notice(forms.ModelForm):
     class Meta:
         model=AddNotice
         fields='__all__'
+
+class event(forms.ModelForm):
+    class Meta:
+        model=AddEvent
+        fields='__all__'

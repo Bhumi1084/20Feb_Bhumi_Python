@@ -15,3 +15,9 @@ class AddNotice(models.Model):
     aboutnotice=models.TextField()
     date=models.DateTimeField()
     mobile=models.BigIntegerField()
+
+class AddEvent(models.Model):
+    eventname=models.CharField(max_length=20)
+    eventdetail=models.CharField(max_length=100)
+    datetime=models.DateTimeField()
+    mobile=models.BigIntegerField()
