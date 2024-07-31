@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Show Society Member</title>
+        <title>Show Notices</title>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -47,9 +47,11 @@
                                 Society Member
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="/addmember">Add
+                                <li><a class="dropdown-item"
+                                        href="/addmember">Add
                                         Member</a></li>
-                                <li><a class="dropdown-item" href="/showmember">View
+                                <li><a class="dropdown-item"
+                                        href="/showmember">View
                                         Member</a></li>
                             </ul>
                         </li>
@@ -145,38 +147,36 @@
         </nav>
         <!-- End Header -->
 
-        <!-- Start Show member Form  -->
+        <!-- Start Show notice Form  -->
         <center>
-            <h1>Show Society Member</h1>
+            <h1>Show Notices</h1>
         </center>
         <hr>
         <br>
         <div class="container">
             <table class="table table-dark table-striped">
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>City</th>
-                    <th>State</th>
+                    <th>Name</th>
+                    <th>About Notice</th>
+                    <th>Date And Time</th>
                     <th>Mobile</th>
                     <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
                 </tr>
 
-                {% for i in memberdata %}
+                {% for i in membernotice %}
                 <tr>
-                    <td>{{i.firstname}}</td>
-                    <td>{{i.lastname}}</td>
-                    <td>{{i.email}}</td>
-                    <td>{{i.city}}</td>
-                    <td>{{i.state}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.aboutnotice}}</td>
+                    <td>{{i.date}}</td>
                     <td>{{i.mobile}}</td>
-                    <td><a class="btn btn-warning" href="/updatemember/{{i.id}}">Update</a>
-                    <a class="btn btn-danger" href="/deletemember/{{i.id}}">Delete</a></td>
+                    <td><a class="btn btn-warning"
+                            href="/updatenotice/{{i.id}}">Update</a>
+                        <a class="btn btn-danger"
+                            href="/deletnotice/{{i.id}}">Delete</a></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-        <!-- End Show member Form -->
+        <!-- End Show notice Form -->
     </body>
 </html>

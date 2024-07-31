@@ -1,54 +1,77 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from .forms import *
 
 # Create your views here.
-def Dashboard(request):
-    user = request.session.get('user')
-    return render(request,'Dashboard.html',{'user':user})
+def base(request):
+    return render(request,'base.html')
 
-def SignUp(request):
-    return render(request,'SignUp.html')
+def navbar(request):
+    return render(request,'navbar.html')
 
-def Login(request):
-    return render(request,'Login.html')
+# Society Member
+def addmember(request):
+    if request.method=='POST':
+        memberdata = societymember(request.POST)
+        if memberdata.is_valid():
+            memberdata.save()
+            print("Record inserted..!!")
+            return redirect('showmember')
+        else:
+            print(memberdata.errors)
+    return render(request,'addmember.html')
 
-def MyProfile(request):
-    return render(request,'MyProfile.html')
+def showmember(request):
+    memberdata = AddMember.objects.all()
+    return render(request,'showmember.html',{'memberdata':memberdata})
 
-def SocietyMembers(request):
-    return render(request,'SocietyMembers.html')
+def deletemember(request,id):
+    mid=AddMember.objects.get(id=id)
+    AddMember.delete(mid)
+    return redirect('showmember')
 
-def ShowMember(request):
-    return render(request,'ShowMember.html')
+def updatemember(request,id):
+    mid = AddMember.objects.get(id=id)
+    if request.method == 'POST':
+        memberdata = societymember(request.POST,instance=mid)
+        if memberdata.is_valid():
+            memberdata.save()
+            print("Record Updates...!!")
+            return redirect('showmember')
+        else:
+            print(memberdata.errors)
+    return render(request,'updatemember.html',{'mid':mid})
 
-def RemoveMember(request):
-    return render(request,'RemoveMember.html')
 
-def SocietyWatchmen(request):
-    return render(request,'SocietyWatchmen.html')
+# Society Notice
 
-def ShowWatchmenDetails(request):
-    return render(request,'ShowWatchmenDetails.html')
+def addnotice(request):
+    if request.method=='POST':
+        noticedata = notice(request.POST)
+        if noticedata.is_valid():
+            noticedata.save()
+            print("Record inserted..!!")
+            return redirect('shownotice')
+        else:
+            print(noticedata.errors)
+    return render(request,'addnotices.html')
 
-def RemoveWatchmen(request):
-    return render(request,'RemoveWatchmen.html')
+def shownotices(request):
+    membernotice = AddNotice.objects.all()
+    return render(request,'shownotices.html',{'membernotice':membernotice})
 
-def Notice(request):
-    return render(request,'Notice.html')
+def deletnotice(request,id):
+    nid=AddNotice.objects.get(id=id)
+    AddNotice.delete(nid)
+    return redirect('shownotice')
 
-def ShowNotice(request):
-    return render(request,'ShowNotice.html')
-
-def RemoveNotice(request):
-    return render(request,'RemoveNotice.html')
-
-def Event(request):
-    return render(request,'Event.html')
-
-def ShowEvent(request):
-    return render(request,'ShowEvent.html')
-
-def RemoveEvent(request):
-    return render(request,'RemoveEvent.html')
+def updatenotice(request,id):
+    nid = AddNotice.objects.get(id=id)
+    if request.method == 'POST':
+        membernotice = notice(request.POST,instance=nid)
+        if membernotice.is_valid():
+            membernotice.save()
+            print("Record Updates...!!")
+            return redirect('shownotice')
+        else:
+            print(membernotice.errors)
+    return render(request,'updatenotice.html',{'nid':nid})
