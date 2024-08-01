@@ -15,3 +15,13 @@ class event(forms.ModelForm):
     class Meta:
         model=AddEvent
         fields='__all__'
+
+class visitors(forms.ModelForm):
+    class Meta:
+        model=AddVisitors
+        fields='__all__'
+
+class transaction(forms.ModelForm):
+    class Meta:
+        model=AddTransaction
+        fields='__all__'

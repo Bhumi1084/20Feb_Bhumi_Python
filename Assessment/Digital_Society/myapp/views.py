@@ -8,7 +8,7 @@ def base(request):
 def navbar(request):
     return render(request,'navbar.html')
 
-# Society Member
+# Society Member Backend code
 def addmember(request):
     if request.method=='POST':
         memberdata = societymember(request.POST)
@@ -42,7 +42,7 @@ def updatemember(request,id):
     return render(request,'updatemember.html',{'mid':mid})
 
 
-# Society Notice
+# Society Notice Backend code
 
 def addnotice(request):
     if request.method=='POST':
@@ -76,7 +76,7 @@ def updatenotice(request,id):
             print(membernotice.errors)
     return render(request,'updatenotice.html',{'nid':nid})
 
-# Event
+# Event Backend code
 
 def addevent(request):
     if request.method=='POST':
@@ -109,3 +109,59 @@ def updateevent(request,id):
         else:
             print(events.errors)
     return render(request,'updateevent.html',{'eid':eid})
+
+# Visitors Backend code
+
+def addvisitor(request):
+    if request.method=='POST':
+        visitordata = visitors(request.POST)
+        if visitordata.is_valid():
+            visitordata.save()
+            print("Record inserted..!!")
+            return redirect('showvisitor')
+        else:
+            print(visitordata.errors)
+    return render(request,'addvisitors.html')
+
+def showvisitor(request):
+    visitor = AddVisitors.objects.all()
+    return render(request,'showvisitors.html',{'visitor':visitor})
+
+def deletevisitor(request,id):
+    vid=AddVisitors.objects.get(id=id)
+    AddVisitors.delete(vid)
+    return redirect('showvisitor')
+
+def updatevisitor(request,id):
+    vid = AddVisitors.objects.get(id=id)
+    if request.method == 'POST':
+        visitor = visitors(request.POST,instance=vid)
+        if visitor.is_valid():
+            visitor.save()
+            print("Record Updates...!!")
+            return redirect('showvisitor')
+        else:
+            print(visitor.errors)
+    return render(request,'updatevisitors.html',{'vid':vid})
+
+# Transaction Backend Code
+
+def addtransaction(request):
+    if request.method=='POST':
+        transactiondata = transaction(request.POST)
+        if transactiondata.is_valid():
+            transactiondata.save()
+            print("Record inserted..!!")
+            return redirect('showtransaction')
+        else:
+            print(transactiondata.errors)
+    return render(request,'addtransaction.html')
+
+def showtransaction(request):
+    transactions = AddTransaction.objects.all()
+    return render(request,'showtransaction.html',{'transactions':transactions})
+
+def deletetransaction(request,id):
+    tid=AddTransaction.objects.get(id=id)
+    AddTransaction.delete(tid)
+    return redirect('showtransaction')

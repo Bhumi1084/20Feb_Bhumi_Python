@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Digital Society</title>
+        <title>Show Visitor</title>
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -46,9 +46,11 @@
                                 Society Member
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="/addmember">Add
+                                <li><a class="dropdown-item"
+                                        href="/addmember">Add
                                         Member</a></li>
-                                <li><a class="dropdown-item" href="/showmember">View
+                                <li><a class="dropdown-item"
+                                        href="/showmember">View
                                         Member</a></li>
                             </ul>
                         </li>
@@ -63,9 +65,9 @@
                                 Notices
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="/addnotice">Add
+                                <li><a class="dropdown-item" href="#">Add
                                         Notices</a></li>
-                                <li><a class="dropdown-item" href="/shownotices">View
+                                <li><a class="dropdown-item" href="#">View
                                         Notices</a></li>
                             </ul>
                         </li>
@@ -80,9 +82,9 @@
                                 Transactions
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="/addtransaction">Add
+                                <li><a class="dropdown-item" href="#">Add
                                         Transactions</a></li>
-                                <li><a class="dropdown-item" href="/showtransaction">View
+                                <li><a class="dropdown-item" href="#">View
                                         Transactions</a></li>
                             </ul>
                         </li>
@@ -114,9 +116,9 @@
                                 Visitors
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="/addvisitor">Add
+                                <li><a class="dropdown-item" href="#">Add
                                         Visitors</a></li>
-                                <li><a class="dropdown-item" href="/showvisitor">View
+                                <li><a class="dropdown-item" href="#">View
                                         Visitors</a></li>
                             </ul>
                         </li>
@@ -131,17 +133,53 @@
                                 Events
                             </button>
                             <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="/addevent">Add
+                                <li><a class="dropdown-item" href="#">Add
                                         Events</a></li>
-                                <li><a class="dropdown-item" href="/showevent">View
+                                <li><a class="dropdown-item" href="#">View
                                         Events</a></li>
                             </ul>
                         </li>
                     </ul>
-                    <!-- End Events Dropdown-->
+                    <!-- End Visitors Dropdown-->
                 </div>
             </div>
         </nav>
         <!-- End Header -->
+
+        <!-- Start Show Event Form  -->
+        <center>
+            <h1>Show Visitors</h1>
+        </center>
+        <hr>
+        <br>
+        <div class="container">
+            <table class="table table-dark table-striped">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Mobile</th>
+                    <th>Date & Time</th>
+                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
+                </tr>
+
+                {% for i in visitor %}
+                <tr>
+                    <td>{{i.firstname}}</td>
+                    <td>{{i.lastname}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.city}}</td>
+                    <td>{{i.state}}</td>
+                    <td>{{i.mobile}}</td>
+                    <td>{{i.date}}</td>
+                    <td><a class="btn btn-warning" href="/updatevisitor/{{i.id}}">Update</a>
+                        <a class="btn btn-danger" href="/deletevent/{{i.id}}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <!-- End Show Visitors Form -->
     </body>
 </html>

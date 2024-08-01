@@ -17,4 +17,11 @@ urlpatterns = [
     path('showevent/',views.showevent, name='showevent'),
     path('deletevent/<int:id>',views.deletevent),
     path('updateevent/<int:id>',views.updateevent),
+    path('addvisitor/',views.addvisitor),
+    path('showvisitor/',views.showvisitor, name='showvisitor'),
+    path('deletevisitor/<int:id>',views.deletevisitor),
+    path('updatevisitor/<int:id>',views.updatevisitor),
+    path('addtransaction/',views.addtransaction),
+    path('showtransaction/',views.showtransaction, name='showtransaction'),
+    path('deletetransaction/<int:id>',views.deletetransaction),
 ]

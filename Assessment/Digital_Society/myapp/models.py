@@ -21,3 +21,21 @@ class AddEvent(models.Model):
     eventdetail=models.CharField(max_length=100)
     datetime=models.DateTimeField()
     mobile=models.BigIntegerField()
+
+class AddVisitors(models.Model):
+    firstname=models.CharField(max_length=20)
+    lastname=models.CharField(max_length=20)
+    email=models.EmailField()
+    city=models.CharField(max_length=20)
+    state=models.CharField(max_length=20)
+    mobile=models.BigIntegerField()
+    date=models.DateTimeField()
+
+class AddTransaction(models.Model):
+    firstname=models.CharField(max_length=20)
+    lastname=models.CharField(max_length=20)
+    date=models.DateTimeField()
+    payamount=models.IntegerField()
+    city=models.CharField(max_length=20)
+    state=models.CharField(max_length=20)
+    mobile=models.BigIntegerField()
