@@ -36,3 +36,9 @@ class VisitorsForm(forms.ModelForm):
     class Meta:
         model=Visitors
         fields='__all__'
+
+# Event
+class EventForm(forms.ModelForm):
+    class Meta:
+        model=Event
+        fields='__all__'

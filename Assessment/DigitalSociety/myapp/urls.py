@@ -33,7 +33,13 @@ urlpatterns = [
 
     # Visitors
     path('visitors/',views.visitors),
-    # path('showvisitors/',views.visitors,name='showvisitors'),
-    # path('deletevisitors/<int:id>',views.deletevisitors),
-    # path('updatevisitors/<int:id>',views.updatevisitors),
+    path('showvisitors/',views.showvisitors,name='showVisitors'),
+    path('deletevisitors/<int:id>',views.deletevisitors),
+    path('updatevisitors/<int:id>',views.updatevisitors),
+
+    # Event
+    path('event/',views.event),
+    path('showevent/',views.showevent,name='showEvent'),
+    path('deleteEvent/<int:id>',views.deleteEvent),
+    path('updateEvent/<int:id>',views.updateEvent),
 ]

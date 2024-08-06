@@ -185,31 +185,67 @@ def visitors(request):
         if newvisitor.is_valid():
             newvisitor.save()
             print("Record Inserted...!!")
-            # return redirect('showvisitors')
+            return redirect('showVisitors')
         else:
             print(newvisitor.errors)
     return render(request,'visitors.html')
 
 # Show Visitors
-# def showvisitors(request):
-#     allvisitors = Visitors.objects.all()
-#     return render(request,'showvisitors.html',{'allvisitors':allvisitors})
+def showvisitors(request):
+    allvisitors = Visitors.objects.all()
+    return render(request,'showvisitors.html',{'allvisitors':allvisitors})
 
 # Delete Visitors
-# def deletevisitors(request, id):
-#     vid = Visitors.objects.get(id=id)
-#     Visitors.delete(vid)
-#     return redirect('showvisitors')
+def deletevisitors(request, id):
+    vid = Visitors.objects.get(id=id)
+    Visitors.delete(vid)
+    return redirect('showVisitors')
 
 # Update Visitors
-# def updatevisitors(request, id):
-#     vid = Visitors.objects.get(id=id)
-#     if request.method=='POST':
-#         updatevisitors=VisitorsForm(request.POST,instance=vid)
-#         if updatevisitors.is_valid():
-#             updatevisitors.save()
-#             print("Recored Updated...!!")
-#             return redirect('showvisitors')
-#         else:
-#             print(updatevisitors.errors)
-#     return render(request,'updatevisitors.html',{'vid':vid})
+def updatevisitors(request, id):
+    vid = Visitors.objects.get(id=id)
+    if request.method=='POST':
+        updatevisitors=VisitorsForm(request.POST,instance=vid)
+        if updatevisitors.is_valid():
+            updatevisitors.save()
+            print("Recored Updated...!!")
+            return redirect('showVisitors')
+        else:
+            print(updatevisitors.errors)
+    return render(request,'updatevisitors.html',{'vid':vid})
+
+# Add Event
+def event(request):
+    if request.method=='POST':
+        newevent = EventForm(request.POST)
+        if newevent.is_valid():
+            newevent.save()
+            print("Record Inserted...!!")
+            return redirect('showEvent')
+        else:
+            print(newevent.errors)
+    return render(request,'event.html')
+
+# Show Event
+def showevent(request):
+    allevent = Event.objects.all()
+    return render(request,'showevent.html',{'allevent':allevent})
+
+# Delete Event
+def deleteEvent(request, id):
+    eid = Event.objects.get(id=id)
+    Event.delete(eid)
+    return redirect('showEvent')
+
+# Update Event
+def updateEvent(request, id):
+    eid = Event.objects.get(id=id)
+    if request.method=='POST':
+        updateEvent=EventForm(request.POST,instance=eid)
+        if updateEvent.is_valid():
+            updateEvent.save()
+            print("Recored Updated...!!")
+            return redirect('showEvent')
+        else:
+            print(updateEvent.errors)
+    return render(request,'updateEvent.html',{'eid':eid})

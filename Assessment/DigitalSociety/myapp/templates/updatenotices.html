@@ -24,6 +24,138 @@
         </style>
     </head>
     <body>
+        <!-- Start Header -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Digital Society</a>
+                <!-- <button class="navbar-toggler" type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNavDarkDropdown"
+    aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button> -->
+
+                <div class="collapse navbar-collapse"
+                    id="navbarNavDarkDropdown">
+
+                    <!-- Start Society Member -->
+                    &nbsp;&nbsp;&nbsp;
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Society Member
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item"
+                                        href="/members">Add Member</a></li>
+                                <li><a class="dropdown-item"
+                                        href="/showmembers">View Member</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End Society Member -->
+
+                    <!-- Start Notices -->
+                    &nbsp;&nbsp;&nbsp;
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Notices
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item"
+                                        href="/addnotices">Add Notices</a></li>
+                                <li><a class="dropdown-item"
+                                        href="/shownotices">View
+                                        Notices</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End Notices -->
+
+                    <!-- Start Transactions -->
+                    &nbsp;&nbsp;&nbsp;
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Transactions
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item"
+                                        href="/transactions">Add
+                                        Transactions</a></li>
+                                <li><a class="dropdown-item"
+                                        href="/showtransactions">View
+                                        Transactions</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End Transactions -->
+
+                    <!-- Start Watchmans -->
+                    &nbsp;&nbsp;&nbsp;
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Watchmans
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item"
+                                        href="/watchman">Add Watchmans</a></li>
+                                <li><a class="dropdown-item"
+                                        href="/showwatchman">View
+                                        Watchmans</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End Watchmans -->
+
+                    <!-- Start Visitors -->
+                    &nbsp;&nbsp;&nbsp;
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Visitors
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item"
+                                        href="/visitors">Add Visitors</a></li>
+                                <li><a class="dropdown-item"
+                                        href="/showvisitors">View
+                                        Visitors</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End Visitors -->
+
+                    <!-- Start Events -->
+                    &nbsp;&nbsp;&nbsp;
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-dark dropdown-toggle"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">Events
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item"
+                                        href="/event">Add Events</a></li>
+                                <li><a class="dropdown-item"
+                                        href="/showevent">View Events</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- End Events -->
+                </div>
+            </div>
+        </nav>
+        <!-- End Header -->
+
         <center>
             <u><h1>Update Notice</h1></u>
         </center>
@@ -68,8 +200,9 @@
                 <div class="col-md-6 position-relative">
                     <label for="validationTooltip01"
                         class="form-label">Date & Time</label>
-                    <input type="datetime-local" class="form-control" value="{{ nid.datetime|date:'Y-m-d\TH:i' }}"
-                        id="validationTooltip01" name="datetime" 
+                    <input type="datetime-local" class="form-control"
+                        value="{{ nid.datetime|date:'Y-m-d\TH:i' }}"
+                        id="validationTooltip01" name="datetime"
                         required>
                 </div>
 

@@ -47,3 +47,10 @@ class Visitors(models.Model):
     mobile=models.BigIntegerField()
     city=models.CharField(max_length=20)
     datetime=models.DateTimeField()
+
+class Event(models.Model):
+    eventname=models.CharField(max_length=20)
+    email=models.EmailField()
+    eventdate=models.DateTimeField()
+    description=models.TextField()
+    mobile=models.BigIntegerField()
