@@ -12,3 +12,9 @@ class addDocotrForm(forms.ModelForm):
     class Meta:
         model=addDoctor
         fields='__all__'
+
+# Add Patient
+class addPatientForm(forms.ModelForm):
+    class Meta:
+        model=addPatients
+        fields='__all__'

@@ -22,3 +22,14 @@ class addDoctor(models.Model):
     gender=models.CharField(max_length=30)
     doctor_details=models.CharField(max_length=100)
     address=models.CharField(max_length=100)    
+
+# Add Patient
+class addPatients(models.Model):
+    patient_name=models.CharField(max_length=30)
+    dob=models.DateField()
+    age=models.BigIntegerField()
+    phone=models.BigIntegerField()
+    email=models.EmailField()
+    gender=models.CharField(max_length=30)
+    address=models.CharField(max_length=150)
+    last_visit=models.DateField()

@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>HMS | All Doctors</title>
+        <title>HMS | All Patient</title>
 
         <link rel="shortcut icon" type="image/png"
             href="{% static 'images/fav.png' %}">
@@ -41,7 +41,7 @@
                 <div class="container mt-0">
                     <div class="row breadcrumb-bar">
                         <div class="col-md-6">
-                            <h3 class="block-title">Doctors</h3>
+                            <h3 class="block-title">Patients</h3>
                         </div>
                         <div class="col-md-6">
                             <ol class="breadcrumb">
@@ -50,9 +50,8 @@
                                         <span class="ti-home"></span>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item">Doctors</li>
-                                <li class="breadcrumb-item active">All
-                                    Doctors</li>
+                                <li class="breadcrumb-item">Patients</li>
+                                <li class="breadcrumb-item active">All Patients</li>
                             </ol>
                         </div>
                     </div>
@@ -66,38 +65,37 @@
                         <!-- Widget Item -->
                         <div class="col-md-12">
                             <div class="widget-area-2 proclinic-box-shadow">
-                                <h3 class="widget-title">Doctors List</h3>
+                                <h3 class="widget-title">Patients List</h3>
                                 <div class="table-responsive mb-3">
                                     <table id="tableId"
                                         class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Doctor ID</th>
-                                                <th>Doctor Name</th>
-                                                <th>Experience <small>(in
-                                                        Years)</small></th>
+                                                <th>Patient ID</th>
+                                                <th>Patient Name</th>
+                                                <th>Age</th>
                                                 <th>Phone</th>
-                                                <th>Specialization</th>
+                                                <th>Last Visit</th>
                                                 <th colspan="2">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for i in showdoctor %}
+                                            {% for i in showpatient %}
                                             <tr>
                                                 <td>{{i.id}}</td>
                                                 <td>
                                                     <a
-                                                        href="/doctor_details/{{i.id}}">{{i.doctor_name}}</a>
+                                                        href="/patient_details/{{i.id}}">{{i.patient_name}}</a>
                                                 </td>
-                                                <td>{{i.experience}}</td>
+                                                <td>{{i.age}}</td>
                                                 <td>{{i.phone}}</td>
-                                                <td>{{i.specialization}}</td>
-                                                <td><a href="/update_doctor/{{i.id}}"
+                                                <td>{{i.last_visit}}</td>
+                                                <td><a href="/update_patient/{{i.id}}"
                                                         class="btn btn-primary mt-3 mb-0"
                                                         style="color: white;"><span
                                                             class="ti-pencil-alt"
                                                             style="color: white;"></span>Edit</a></td>
-                                                <td><a href="/delete_doctor/{{i.id}}"
+                                                <td><a href="/delete_patient/{{i.id}}"
                                                         class="btn btn-danger mt-3 mb-0"
                                                         style="color: white;"><span
                                                             class="ti-trash"

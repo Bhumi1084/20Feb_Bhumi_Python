@@ -1,11 +1,21 @@
 from django.shortcuts import render, redirect, get_list_or_404
 from .forms import *
+from django.contrib.auth import logout
 
 # Create your views here.
 
 # Dashboard
 def dashboard(request):
     return render(request,'dashboard.html')
+
+# NavigationBar
+def navbar(request):
+    return render(request,'navbar.html')
+
+# Logout
+def userlogout(request):
+    logout(request)
+    return redirect('/')
 
 # Login
 def base(request):
@@ -34,6 +44,8 @@ def signup(request):
             print(newuser.errors)
     return render(request,'signup.html')
 
+
+
 # Add Doctor
 def add_doctor(request):
     msg=""
@@ -48,6 +60,27 @@ def add_doctor(request):
             print(newdoctor.errors)
             msg="Holy guacamole! You should check in on some of those fields below."
     return render(request,'add_doctor.html',{'msg':msg})
+
+# Add Patient
+def add_patient(request):
+    msg=""
+    if request.method=='POST':
+        newpatient = addPatientForm(request.POST)
+        if newpatient.is_valid():
+            newpatient.save()
+            print("Record Inserted....!!")
+            msg="Successfully Done! Please add payment now"
+            return redirect('allpatient')
+        else:
+            print(newpatient.errors)
+            msg="Holy guacamole! You should check in on some of those fields below."
+    return render(request,'add_patient.html',{'msg':msg})
+
+# Add Appointment
+def add_appointment(request):
+    return render(request,'add_appointment.html')
+
+
 
 # Update Doctor
 def update_doctor(request, id):
@@ -65,10 +98,35 @@ def update_doctor(request, id):
             msg="Holy guacamole! You should check in on some of those fields below."
     return render(request,'update_doctor.html',{'docid':docid, 'msg':msg})
 
+# Update Patient
+def update_patient(request, id):
+    msg=""
+    patientid = addPatients.objects.get(id=id)
+    if request.method=='POST':
+        newpatient = addPatientForm(request.POST, instance=patientid)
+        if newpatient.is_valid():
+            newpatient.save()
+            print("Recored is updated..!!")
+            msg="Successfully Done! Please add payment now"
+            return redirect('allpatient')
+        else:
+            print(newpatient.errors)
+            msg="Holy guacamole! You should check in on some of those fields below."
+    return render(request,'update_patient.html',{'patientid':patientid, 'msg':msg})
+
+
+
 # All Doctors List
 def all_doctors(request):
     showdoctor = addDoctor.objects.all()
     return render(request,'all_doctors.html',{'showdoctor':showdoctor})
+
+# All Patient List
+def all_patient(request):
+    showpatient = addPatients.objects.all()
+    return render(request,'all_patient.html',{'showpatient':showpatient})
+
+
 
 # Doctor Details
 def doctor_details(request,id):
@@ -77,8 +135,23 @@ def doctor_details(request,id):
         'doctor': doctor,
     })
 
+# Patient Details
+def patient_details(request, id):
+    patient = addPatients.objects.get(id=id)
+    return render(request,'patient_details.html', {
+        'patient': patient,
+    }) 
+
+
+
 # Delete Doctor
 def delete_doctor(request,id):
     docid = addDoctor.objects.get(id=id)
     addDoctor.delete(docid)
     return redirect('alldoctors')
+
+# Delete Patient
+def delete_patient(request,id):
+    patientid = addPatients.objects.get(id=id)
+    addPatients.delete(patientid)
+    return redirect('allpatient')
